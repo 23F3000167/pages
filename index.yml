@@ -1,5 +1,4 @@
-jobs:
-  test:
-    steps:
-      - name: 23f3000167@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
+user:
+  name: "S.Vasanth Kumar"
+  email: "23f3000167@ds.study.iitm.ac.in"
+
