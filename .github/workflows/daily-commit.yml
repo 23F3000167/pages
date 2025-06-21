@@ -10,9 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 23f3000167@ds.study.iitm.ac.in
+      - name: 23f3000167@ds.study.iitm.ac.in - Add Daily Log Entry
         run: |
           echo "Run on $(date)" >> daily-log.txt
           git config user.name "github-actions[bot]"
