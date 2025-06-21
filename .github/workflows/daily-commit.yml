@@ -1,9 +1,8 @@
 name: Daily Scheduled Commit
 on:
   schedule:
-    # Runs at 12:00 UTC every day (cron syntax)
-    - cron: '0 12 * * *'
-  workflow_dispatch:  # Allow manual triggering
+    - cron: '0 12 * * *'  # Runs at 12:00 UTC daily
+  workflow_dispatch:       # Allow manual triggering
 
 jobs:
   commit:
@@ -12,8 +11,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Step with email 23f3000167@ds.study.iitm.ac.in
-        run: echo "Workflow step with your email."
+      - name: Step for 23f3000167@ds.study.iitm.ac.in
+        run: echo "This step includes the required email in its name."
 
       - name: Create commit
         run: |
