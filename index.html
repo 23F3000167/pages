@@ -1,120 +1,179 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Data Analyst Agent</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q{n} Earnings — Interactive RevealJS Deck</title>
+
+  <!-- RevealJS core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <!-- Theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
+  <!-- Code highlighting theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/plugin/highlight/monokai.css" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #3498db;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-    main {
-      display: flex;
-      justify-content: center;
-      padding: 30px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 500px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-    input[type="file"] {
-      background: #f9f9f9;
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      width: 100%;
-    }
-    button {
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #2980b9;
-    }
-    .loader {
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid #3498db;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: spin 1s linear infinite;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    #status {
-      margin-top: 20px;
-      padding: 12px;
-      background: #f1f9ff;
-      border: 1px solid #d0e7ff;
-      border-radius: 8px;
-      font-family: monospace;
-      white-space: pre-wrap;
-    }
+    /* Subtle, modern polish */
+    .reveal .title-tag { font-size: 28px; letter-spacing: .02em; opacity: .85; }
+    .reveal .email { font-weight: 600; }
+    .reveal .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .reveal .kpi .card { padding: 18px; border-radius: 16px; background: rgba(255,255,255,.06); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .reveal .muted { opacity: .8; font-size: .8em; }
+    .reveal pre code { border-radius: 14px; }
+    .reveal .footnote { position: absolute; bottom: 14px; left: 20px; font-size: 12px; opacity: .7; }
   </style>
 </head>
 <body>
-  <header>📊 Data Analyst Agent</header>
+  <div class="reveal">
+    <div class="slides">
 
-  <main>
-    <div class="card">
-      <form id="uploadForm">
-        <div class="form-group">
-          <label for="questions">Questions File:</label>
-          <input type="file" id="questions" required>
+      <!-- TITLE -->
+      <section data-auto-animate data-background-gradient="linear-gradient(135deg, #0f2027, #2c5364)">
+        <h2 style="margin-bottom:.2em">Quarterly Earnings Report</h2>
+        <div class="title-tag">Modern Interactive Presentation (RevealJS)</div>
+        <p class="email" style="margin-top:1.2em">23f3000167@ds.study.iitm.ac.in</p>
+        <p class="muted">Use ← → to navigate • Press <kbd>S</kbd> for speaker notes</p>
+        <aside class="notes">
+          Welcome the audience. Mention this deck uses RevealJS for live fragments, code highlights, and math.
+          Share the agenda and emphasize the story: performance, drivers, outlook, and risk.
+        </aside>
+      </section>
+
+      <!-- MARKDOWN SLIDE (require Markdown plugin) -->
+      <section data-markdown data-separator="^---$" data-separator-notes="^Note:" data-auto-animate>
+        <textarea data-template>
+### Agenda (Markdown)
+
+1. Performance snapshot
+2. Revenue drivers & costs
+3. Guidance & risks
+4. Q&A
+
+Note: Keep this tight. Promise deep-dives later.
+---
+### Performance Snapshot (Markdown)
+
+- Revenue: **$2.31B** _(↑ 12% YoY)_
+- Gross margin: **41.6%** _(↑ 140 bps)_
+- EPS (diluted): **$1.22** _(↑ 18% YoY)_
+
+Note: Highlight the margin expansion and operating leverage.
+        </textarea>
+      </section>
+
+      <!-- KPIs + FRAGMENTS -->
+      <section data-auto-animate>
+        <h3>Highlights</h3>
+        <div class="kpi">
+          <div class="card fragment">
+            <h4>Revenue</h4>
+            <p style="font-size:46px; margin:.1em 0"><strong>$2.31B</strong></p>
+            <div class="muted">+12% YoY</div>
+          </div>
+          <div class="card fragment">
+            <h4>Operating Margin</h4>
+            <p style="font-size:46px; margin:.1em 0"><strong>18.9%</strong></p>
+            <div class="muted">+120 bps</div>
+          </div>
+          <div class="card fragment">
+            <h4>Free Cash Flow</h4>
+            <p style="font-size:46px; margin:.1em 0"><strong>$402M</strong></p>
+            <div class="muted">Conversion 111%</div>
+          </div>
         </div>
+        <aside class="notes">
+          Reveal each KPI with fragments. Tie improvements to pricing, mix, and opex discipline.
+        </aside>
+      </section>
 
-        <div class="form-group">
-          <label for="dataFile">Optional Data File:</label>
-          <input type="file" id="dataFile">
-        </div>
+      <!-- CODE SAMPLE with syntax highlighting -->
+      <section>
+        <h3>Data Pipeline (Code Sample)</h3>
+        <pre><code class="language-python" data-line-numbers>
+import pandas as pd
+import numpy as np
 
-        <div class="form-group">
-          <label for="imageFile">Optional Image File:</label>
-          <input type="file" id="imageFile" accept="image/*">
-        </div>
+# Quick revenue bridge example
+actuals = pd.Series({"Q-1": 2060, "Q": 2310})
+bridge = {
+    "Volume": 140,
+    "Price": 80,
+    "FX": -20,
+    "M&A": 50
+}
+npv = lambda cf, r: sum(cf[t] / (1+r)**(t+1) for t in range(len(cf)))
+print("Bridge", bridge)
+        </code></pre>
+        <pre><code class="language-javascript" data-line-numbers>
+// Lightweight revenue formatter for dashboard
+const fmt = n => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+console.log('Revenue Q:', fmt(2310000000));
+        </code></pre>
+        <aside class="notes">Call out syntax highlighting and the value of reproducible analysis.</aside>
+      </section>
 
-        <button type="submit">🚀 Submit</button>
-      </form>
+      <!-- MATH: Financial formulas -->
+      <section data-auto-animate>
+        <h3>Financial Math</h3>
+        <p>Net Present Value (NPV):</p>
+        <p>\[ \text{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1 + r)^t} - I_0 \]</p>
+        <p class="fragment">Earnings per Share (EPS): \( \displaystyle EPS = \frac{\text{Net Income} - \text{Preferred Dividends}}{\text{Weighted Avg. Shares}} \)</p>
+        <p class="fragment">Black–Scholes (call): \( C = S\,\Phi(d_1) - K e^{-rT}\,\Phi(d_2) \)</p>
+        <aside class="notes">Use the NPV example for capex decisions; remind sensitivity to discount rate r.</aside>
+      </section>
 
-      <div id="status"></div>
+      <!-- AUTO-ANIMATE WALKTHROUGH -->
+      <section data-auto-animate>
+        <h3>Guidance Walkthrough</h3>
+        <p class="muted">Auto-animate morphs elements between slides</p>
+        <div id="guide" style="font-size:44px">FY Rev: $9.4–$9.6B</div>
+        <aside class="notes">Set the range, then reveal drivers next slide.</aside>
+      </section>
+      <section data-auto-animate>
+        <h3>Guidance Walkthrough</h3>
+        <div id="guide" style="font-size:44px">FY Rev: <strong>$9.5B</strong> midpoint</div>
+        <ul>
+          <li class="fragment">Volume recovery in North America</li>
+          <li class="fragment">Mix shift to subscription</li>
+          <li class="fragment">FX headwinds (~40 bps)</li>
+        </ul>
+        <aside class="notes">Narrate drivers and headwinds; keep Q&A timeboxed.</aside>
+      </section>
+
+      <!-- Q&A with contact email on slide -->
+      <section>
+        <h2>Q&A</h2>
+        <p class="muted">Contact: <strong>23f3000167@ds.study.iitm.ac.in</strong></p>
+        <aside class="notes">Invite questions. Offer to share the deck and appendix tabs.</aside>
+      </section>
+
+      <div class="footnote">Press <strong>S</strong> for speaker notes • <strong>Esc</strong> for slide overview</div>
+
     </div>
-  </main>
+  </div>
 
-  <script src="index.js" defer></script>
+  <!-- RevealJS core & plugins -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    // Initialize deck
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ],
+      // KaTeX options
+      math: {
+        mathjax: null, // use KaTeX plugin by default
+        katex: {
+          macros: { "\\RR": "\\mathbb{R}" }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
-
